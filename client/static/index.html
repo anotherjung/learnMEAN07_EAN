@@ -2,6 +2,7 @@
 <head>
 	<link href='css/materialize.css' rel='stylesheet' />
 	<script src='js/angular.js'/></script>
+	<!--5 add lib file-->
 	<script src='js/angular-route.js'/></script>
 	<script type='text/javascript'>
 		//5 inject the ngRoute dependency in the module
@@ -21,7 +22,7 @@
 
 		})//ends config
 
-		//  build the controllers
+		//5  build the controllers
 	    myApp.controller('view1Controller', function ($scope) {
 	    	$scope.sports = ['golf', 'basketball', 'hockey', 'tennis', 'football'];
 	    });
@@ -32,6 +33,7 @@
 	</script>
 </head>
 <body ng-app='myApp'>
+	<!--5 add navbar for $routeProvider -->
 	<a href="#/">Partial 1</a> | <a href="#/partial2">Partial 2</a>
 	<div ng-view="">
 	</div>
