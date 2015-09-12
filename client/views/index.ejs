@@ -1,0 +1,32 @@
+<html>
+<head>
+   <link href='css/materialize.css' rel='stylesheet' />
+ <title>yo lean MVC</title>
+
+</head>
+<body>
+ <div class="container">
+<div class="row">
+ <h3>Add a Quote!</h3>
+ <form class='form' action='/quotes' method='post'>
+<div class="col s12 m6 l3">    
+	<label for="name1">Name:</label> 
+	<input id="name1" class='form-control' type='text' name='name'>
+</div>
+<div class="col s12 m6 l3"> 
+    <label for="text1">Quote</label>
+    <textarea id="text1" class='form-control' type='text' name='quote'></textarea><p></p>
+</div>    
+<div class="col s12 m6 l3"> 
+    <input class= "btn green" type="submit" value="Submit">
+</div>
+<div class="col s12 m6 l3"> 
+  <a class="btn green" href="/main" role="button">To the Quotes</a>
+</div>   
+</div>
+ </form>
+
+
+</div><!--end container-->
+</body>
+</html>

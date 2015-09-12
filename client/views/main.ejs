@@ -1,0 +1,33 @@
+<html>
+<head>
+   <link href='css/materialize.css' rel='stylesheet' />
+ <title>yo lean MVC</title>
+
+</head>
+<body>
+<div class="container">
+<div class="row">	
+  <h2>yo quotes!</h2>
+</div> 
+
+  <% for (var i in quotes) { %>
+  <div class="card">
+  	<div class="card-content grey darken-1">
+  		<span class="white-text">
+    <h3>quote: <%= quotes[i].quote %> </h3>
+    <p>name: <%= quotes[i].name %> </p>
+	</span>
+    </div>
+</div>
+    <!-- <hr> -->
+  <% } %>
+
+<div class="col s12 m6 l3"> 
+  <a class="btn green" href="/" role="button">Back Home</a>
+</div>  
+
+
+</div>  
+
+</body>
+</html>
