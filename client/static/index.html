@@ -16,6 +16,10 @@
 			.when('/partial2',{
 				templateUrl: 'partials/view2.html'
 			})
+			//5b add route for heros
+			.when('/partial3',{
+				templateUrl: 'partials/view3.html'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
@@ -30,11 +34,50 @@
 	    	$scope.message = 'We are using another controller';
 	    });	
 
+
+	    //5b add controller for heros
+	    myApp.controller('heroController', function ($scope, heroFactory) { 
+			//3 create scope for array 
+			$scope.heros = [];
+			//3 get data from factory
+			heroFactory.getHeros(function (data){
+				$scope.heros = data;
+			})
+
+			//2a ng-click
+			$scope.addHero = function () {
+				//add to array
+				$scope.heros.push($scope.newHero);
+				//clear form values by giving it an empty object
+				$scope.newHero = {};
+			}
+		}); //ends controller
+
+	    //5b add factory to provide data to controller
+		myApp.factory('heroFactory', function () {
+			//3 factory is a function that returns an object literal
+			var heros = [ 
+				{name:'batman', number:11, color:'black'}, 
+				{name:'superman', number:22, color:'blue/red'},
+				{name:'ironman', number:11, color:'red/gold'}, 
+				{name:'hulk', number:22, color:'green'} 
+				];
+			var factory = {};
+			//3 create getHeros method to a callback 
+			factory.getHeros = function (callback) {
+				console.log('here in factory');
+				//pass the heros object to callback
+				callback(heros);
+			}
+			return factory
+		}) //ends factory
+
 	</script>
 </head>
 <body ng-app='myApp'>
 	<!--5 add navbar for $routeProvider -->
-	<a href="#/">Partial 1</a> | <a href="#/partial2">Partial 2</a>
+	<!--5b add link for heros -->
+	<a href="#/">Partial 1</a> | <a href="#/partial2">Partial 2</a> | <a href="#/partial3">Partial 3</a>
 	<div ng-view="">
 	</div>
 </body>

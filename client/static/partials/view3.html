@@ -1,0 +1,43 @@
+	<!--1b add ng-controller directive to div container -->
+	  <div class="container" ng-controller='heroController'>
+	  	<div class="row">
+	  	 <div class="col s12 m6 l3"> 
+	  	 	<!--4 filter_name -->
+	  	 	<label for="search1">Search:</label>
+	  	 	<input id="search1" type="text" ng-model="filter_name">
+		    <ul class="collection with-header">
+		    	<li class="collection-header"><h4>List of Heros</h4></li>
+		    	<!--4 filter_name  orderBy -->
+		       <li class="collection-item" ng-repeat="hero in heros | filter:filter_name | orderBy:'number'">
+		       	{{hero.name}} 
+		       	{{hero.number | number:0}}
+		       	{{hero.color | uppercase}}
+		       </li>
+		    </ul>
+		</div>
+		</div>
+
+		<div class="row">
+	    <div class="col s12 m6 l3"> 
+		    <h4 class="center">Add a new hero</h4>
+		  	<form class='form'>
+
+		  		<div class="col s12 m6 l3">    
+		  			<label for="name1">Name:</label> 
+		  			<!--2b ng-model -->
+		  			<input id="name1" class='form-control' type='text' name='name' ng-model='newHero.name'>
+		  		</div>
+		  		<div class="col s12 m6 l3"> 
+		  			<label for="text1">Number</label>
+		  			<!--2b ng-model -->
+		  			<textarea id="text1" class='form-control' type='text' name='number' ng-model='newHero.number'></textarea><p></p>
+		  		</div>    
+		  		<div class="col s12 m6 l3"> 
+		  			<!--2c ng-click -->
+		  			<input class= "btn green" type="submit" value="Submit" ng-click='addHero()'>
+		  		</div>
+
+		  	</form>
+	  	</div>   
+	  	</div>
+	  </div>
