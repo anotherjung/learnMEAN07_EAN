@@ -44,13 +44,21 @@
 				$scope.heros = data;
 			})
 
-			//2a ng-click
+			//2a ng-click add
 			$scope.addHero = function () {
 				//add to array
 				$scope.heros.push($scope.newHero);
 				//clear form values by giving it an empty object
 				$scope.newHero = {};
 			}
+
+			//5c ng-click delete
+			$scope.removeHero = function (hero) {
+				// $scope.heros.splice($index, 1);
+				//  indexOf() calculates the index of the item whose value matches what we pass it.  Look it up!
+    			$scope.heros.splice($scope.heros.indexOf(hero), 1);
+			}
+
 		}); //ends controller
 
 	    //5b add factory to provide data to controller

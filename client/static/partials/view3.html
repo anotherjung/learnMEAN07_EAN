@@ -1,7 +1,7 @@
 	<!--1b add ng-controller directive to div container -->
 	  <div class="container" ng-controller='heroController'>
 	  	<div class="row">
-	  	 <div class="col s12 m6 l3"> 
+	  	 <div class="col s12"> 
 	  	 	<!--4 filter_name -->
 	  	 	<label for="search1">Search:</label>
 	  	 	<input id="search1" type="text" ng-model="filter_name">
@@ -12,13 +12,15 @@
 		       	{{hero.name}} 
 		       	{{hero.number | number:0}}
 		       	{{hero.color | uppercase}}
+		       	<!--5c delete -->
+		       	<a href="#/partial3" ng-click='removeHero(hero)'>delete</a>
 		       </li>
 		    </ul>
 		</div>
 		</div>
 
 		<div class="row">
-	    <div class="col s12 m6 l3"> 
+	    <div class="col s12"> 
 		    <h4 class="center">Add a new hero</h4>
 		  	<form class='form'>
 
